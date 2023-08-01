@@ -6,7 +6,7 @@ The Raudikko Analysis plugin provides Finnish language analysis using [Raudikko]
 
 | Plugin version | Raudikko version | OpenSearch version |
 |----------------|------------------|--------------------|
-| 0.1.0          | 0.1.4            | 2.5.0              |
+| 0.1.0          | 0.1.4            | 2.5.0, 2.9.0       |
 
 The plugin should support all 2.x.x, but OpenSearch requires the plugin to declare an exact version, so each release
 of the plugin has several packages per OpenSearch version. Check [releases](https://github.com/EvidentSolutions/opensearch-analysis-raudikko/releases)
@@ -17,7 +17,7 @@ if the version you need is included, and if not, please create an issue requesti
 To install the plugin, run the following command, changing the version in URL to match your version of OpenSearch:
 
 ```
-bin/opensearch-plugin install https://github.com/EvidentSolutions/opensearch-analysis-raudikko/releases/download/v0.1.0/opensearch-analysis-raudikko-0.1.0-os2.5.0.zip
+bin/opensearch-plugin install https://github.com/EvidentSolutions/opensearch-analysis-raudikko/releases/download/v0.1.0/opensearch-analysis-raudikko-0.1.0-os2.9.0.zip
 ```
 
 ### Docker
@@ -25,9 +25,9 @@ bin/opensearch-plugin install https://github.com/EvidentSolutions/opensearch-ana
 Building the plugin and running with docker
 
 ```
-./gradlew build -DopensearchVersion=2.5.0
+./gradlew build -DopensearchVersion=2.9.0
 cd etc
-docker compose build --build-arg "OS_VERSION=2.5.0"
+docker compose build --build-arg "OS_VERSION=2.9.0"
 docker compose up
 ```
 
