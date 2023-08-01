@@ -1,0 +1,22 @@
+### test analyzer
+GET https://localhost:9200/_analyze
+Content-Type: application/json; charset=UTF-8
+Authorization: Basic YWRtaW46YWRtaW4=
+
+{
+  "tokenizer" : "finnish",
+  "filter" : [{"type": "raudikko"}],
+  "text" : "Testataan raudikon analyysiä tällä tavalla yksinkertaisesti."
+}
+
+### check status
+GET https://localhost:9200/_cluster/health?pretty
+Authorization: Basic YWRtaW46YWRtaW4=
+
+### check version
+GET https://localhost:9200
+Authorization: Basic YWRtaW46YWRtaW4=
+
+### show plugins
+GET https://localhost:9200/_cat/plugins?v=true&s=component&h=component,version,description
+Authorization: Basic YWRtaW46YWRtaW4=
