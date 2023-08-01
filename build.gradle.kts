@@ -3,7 +3,7 @@ plugins {
 }
 
 val baseVersion = System.getProperty("baseVersion") ?: "0.1"
-val opensearchVersion = System.getProperty("opensearchVersion") ?: "2.5.0"
+val opensearchVersion = System.getProperty("opensearchVersion") ?: "2.9.0"
 
 group = "fi.evident.opensearch"
 version = "$baseVersion-os$opensearchVersion"
