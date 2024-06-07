@@ -4,9 +4,9 @@ The Raudikko Analysis plugin provides Finnish language analysis using [Raudikko]
 
 ## Supported versions
 
-| Plugin version | Raudikko version | OpenSearch version                      |
-|----------------|------------------|-----------------------------------------|
-| 0.1.0          | 0.1.4            | 2.5.0, 2.6.0, 2.7.0, 2.8.0, 2.9.0       |
+| Plugin version | Raudikko version | OpenSearch version                                                        |
+|----------------|------------------|---------------------------------------------------------------------------|
+| 0.1.0          | 0.1.4            | 2.5.0, 2.6.0, 2.7.0, 2.8.0, 2.9.0, 2.10.0, 2.11.0, 2.12.0, 2.13.0, 2.14.0 |
 
 The plugin should support all 2.x.x, but OpenSearch requires the plugin to declare an exact version, so each release
 of the plugin has several packages per OpenSearch version. Check [releases](https://github.com/EvidentSolutions/opensearch-analysis-raudikko/releases)
@@ -16,7 +16,7 @@ if the version you need is included, and if not, please create an issue requesti
 
 To install the plugin, run the following command, changing the version in URL to match your version of OpenSearch:
 
-```
+```console
 bin/opensearch-plugin install https://github.com/EvidentSolutions/opensearch-analysis-raudikko/releases/download/v0.1.0/opensearch-analysis-raudikko-0.1.0-os2.9.0.zip
 ```
 
@@ -24,10 +24,10 @@ bin/opensearch-plugin install https://github.com/EvidentSolutions/opensearch-ana
 
 Building the plugin and running with docker
 
-```
-./gradlew build -DopensearchVersion=2.9.0
+```console
+./gradlew build -DopensearchVersion=2.14.0
 cd etc
-docker compose build --build-arg "OS_VERSION=2.9.0"
+docker compose build --build-arg "OS_VERSION=2.14.0"
 docker compose up
 ```
 
@@ -37,7 +37,7 @@ OpenSearch should be running and available at port 9200.
 
 After installing the plugin, you can quickly verify that it works by executing:
 
-```
+```console
 curl -XGET 'localhost:9200/_analyze' -H 'Content-Type: application/json' -d '
 {
   "tokenizer" : "finnish",
