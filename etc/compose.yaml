@@ -1,5 +1,5 @@
-version: "3.9"
 services:
+
   opensearch:
     build:
       dockerfile: ./etc/Dockerfile
