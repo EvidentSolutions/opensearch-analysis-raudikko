@@ -1,4 +1,4 @@
-ARG OS_VERSION=2.5.0
+ARG OS_VERSION=2.14.0
 
 FROM opensearchproject/opensearch:${OS_VERSION}
 
