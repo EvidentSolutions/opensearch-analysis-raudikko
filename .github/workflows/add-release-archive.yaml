@@ -3,11 +3,6 @@ name: Add release archive
 on:
   workflow_dispatch:
     inputs:
-      # TODO: detect this automatically from tag name
-      releaseId:
-        required: true
-        type: string
-        description: "Id of the release to update"
       releaseVersion:
         required: true
         type: string
@@ -33,10 +28,15 @@ jobs:
       - uses: gradle/gradle-build-action@v2
         with:
           arguments: build -DbaseVersion=${{ github.event.inputs.releaseVersion }} -DopensearchVersion=${{ github.event.inputs.opensearchVersion }}
+      - name: Get release ID
+        id: get_release_id
+        run: |
+          release_id=$(curl -s -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" https://api.github.com/repos/${{ github.repository }}/releases/tags/v${{ github.event.inputs.releaseVersion }} | jq -r '.id')
+          echo "::set-output name=releaseId::$release_id"          
       - name: Upload the artifacts
         uses: skx/github-action-publish-binaries@release-2.0
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          releaseId: ${{ github.event.inputs.releaseId }}
+          releaseId: ${{ steps.get_release_id.outputs.releaseId }}
           args: 'build/distributions/*.zip'
