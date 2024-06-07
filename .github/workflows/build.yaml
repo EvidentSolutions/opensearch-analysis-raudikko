@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        opensearchVersion: ['2.5.0', '2.9.0']
+        opensearchVersion: ['2.5.0', '2.14.0']
       fail-fast: false
     steps:
       - uses: actions/checkout@v2
