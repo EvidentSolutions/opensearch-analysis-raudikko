@@ -41,8 +41,7 @@ jobs:
           java-version: 21
       - uses: gradle/actions/wrapper-validation@v4
       - uses: gradle/actions/setup-gradle@v4
-        with:
-          arguments: build -DbaseVersion=${{ needs.prepare.outputs.version }} -DopensearchVersion=${{ matrix.opensearchVersion }}
+      - run: ./gradlew build -DbaseVersion=${{ needs.prepare.outputs.version }} -DopensearchVersion=${{ matrix.opensearchVersion }}
       - name: Upload the artifacts
         uses: skx/github-action-publish-binaries@release-2.0
         env:
