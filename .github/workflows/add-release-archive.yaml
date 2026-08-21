@@ -18,15 +18,15 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
         with:
           ref: v${{ github.event.inputs.releaseVersion }}
       - uses: actions/setup-java@v4
         with:
           distribution: temurin
           java-version: 21
-      - uses: gradle/wrapper-validation-action@v1
-      - uses: gradle/gradle-build-action@v2
+      - uses: gradle/actions/wrapper-validation@v4
+      - uses: gradle/actions/setup-gradle@v4
         with:
           arguments: build -DbaseVersion=${{ github.event.inputs.releaseVersion }} -DopensearchVersion=${{ github.event.inputs.opensearchVersion }}
       - name: Get release ID
