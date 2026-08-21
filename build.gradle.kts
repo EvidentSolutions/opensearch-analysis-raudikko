@@ -4,6 +4,7 @@ plugins {
 
 val baseVersion = System.getProperty("baseVersion") ?: "0.1"
 val opensearchVersion = System.getProperty("opensearchVersion") ?: "2.9.0"
+val javaVersion = if (opensearchVersion.startsWith("3.")) 21 else 17
 
 group = "fi.evident.opensearch"
 version = "$baseVersion-os$opensearchVersion"
@@ -48,6 +49,6 @@ artifacts {
 
 java {
     toolchain {
-        languageVersion.set(JavaLanguageVersion.of(17))
+        languageVersion.set(JavaLanguageVersion.of(javaVersion))
     }
 }

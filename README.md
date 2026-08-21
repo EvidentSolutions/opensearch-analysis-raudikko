@@ -4,11 +4,11 @@ The Raudikko Analysis plugin provides Finnish language analysis using [Raudikko]
 
 ## Supported versions
 
-| Plugin version | Raudikko version | OpenSearch version                                                        |
-|----------------|------------------|---------------------------------------------------------------------------|
-| 0.1.0          | 0.1.4            | 2.5.0, 2.6.0, 2.7.0, 2.8.0, 2.9.0, 2.10.0, 2.11.0, 2.12.0, 2.13.0, 2.14.0 |
+| Plugin version | Raudikko version | OpenSearch version                                                                                          |
+|----------------|------------------|---------------------------------------------------------------------------------------------------------------|
+| 0.1.0          | 0.1.4            | 2.5.0, 2.6.0, 2.7.0, 2.8.0, 2.9.0, 2.10.0, 2.11.0, 2.12.0, 2.13.0, 2.14.0, 3.4.0, 3.5.0, 3.6.0, 3.7.0, 3.8.0 |
 
-The plugin should support all 2.x.x, but OpenSearch requires the plugin to declare an exact version, so each release
+The plugin should support all 2.x.x and 3.x.x, but OpenSearch requires the plugin to declare an exact version, so each release
 of the plugin has several packages per OpenSearch version. Check [releases](https://github.com/EvidentSolutions/opensearch-analysis-raudikko/releases)
 if the version you need is included, and if not, please create an issue requesting support for that version.
 
