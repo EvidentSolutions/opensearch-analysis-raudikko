@@ -24,7 +24,7 @@ Building the plugin and running with docker
 ```shell
 ./gradlew build
 cd etc
-docker compose build --build-arg "OS_VERSION=2.9.0"
+docker compose build
 docker compose up
 ```
 
@@ -35,12 +35,16 @@ OpenSearch should be running and available at port 9200.
 After installing the plugin, you can quickly verify that it works by executing:
 
 ```shell
-curl -XGET 'localhost:9200/_analyze' -H 'Content-Type: application/json' -d '
-{
-  "tokenizer" : "finnish",
-  "filter" : [{"type": "raudikko"}],
-  "text" : "Testataan raudikon analyysiä tällä tavalla yksinkertaisesti."
-}'
+curl -XGET 'https://localhost:9200/_analyze' \
+  --insecure \
+  --user admin:TestPassword#123 \
+  -H 'Content-Type: application/json' \
+  -d '
+  {
+    "tokenizer" : "finnish",
+    "filter" : [{"type": "raudikko"}],
+    "text" : "Testataan raudikon analyysiä tällä tavalla yksinkertaisesti."
+  }'
 ```
 
 If this works without error messages, you can proceed to configure the plugin index.
