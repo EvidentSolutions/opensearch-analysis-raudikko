@@ -29,10 +29,6 @@ jobs:
   build:
     needs: [ prepare ]
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-          opensearchVersion: ['3.0.0', '3.8.0']
-      fail-fast: false
     steps:
       - uses: actions/checkout@v7
       - uses: actions/setup-java@v5
@@ -41,7 +37,7 @@ jobs:
           distribution: temurin
       - uses: gradle/actions/setup-gradle@v6
       - name: Build with Gradle
-        run: ./gradlew build -DbaseVersion=${{ needs.prepare.outputs.version }} -DopensearchVersion=${{ matrix.opensearchVersion }}
+        run: ./gradlew build -DbaseVersion=${{ needs.prepare.outputs.version }}
       - name: Upload the artifacts
         uses: skx/github-action-publish-binaries@release-2.0
         env:
