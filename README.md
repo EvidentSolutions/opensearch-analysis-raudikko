@@ -13,8 +13,8 @@ The Raudikko Analysis plugin provides Finnish language analysis using [Raudikko]
 
 To install the plugin, run the following command, changing the version in URL to match your version of OpenSearch:
 
-```
-bin/opensearch-plugin install https://github.com/EvidentSolutions/opensearch-analysis-raudikko/releases/download/v0.1.0/opensearch-analysis-raudikko-0.1.0-os2.9.0.zip
+```shell
+bin/opensearch-plugin install https://github.com/EvidentSolutions/opensearch-analysis-raudikko/releases/download/v0.2.0/opensearch-analysis-raudikko-0.2.0.zip
 ```
 
 ### Docker
