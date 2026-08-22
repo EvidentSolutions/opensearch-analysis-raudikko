@@ -2,11 +2,11 @@ plugins {
     `java-library`
 }
 
-val baseVersion = System.getProperty("baseVersion") ?: "0.1"
-val opensearchVersion = System.getProperty("opensearchVersion") ?: "2.9.0"
+val baseVersion = System.getProperty("baseVersion") ?: "0.2"
+val opensearchVersion = System.getProperty("opensearchVersion") ?: "3.0.0"
 
 group = "fi.evident.opensearch"
-version = "$baseVersion-os$opensearchVersion"
+version = "$baseVersion"
 
 repositories {
     mavenCentral()
@@ -36,7 +36,6 @@ val distributionZip = tasks.register<Zip>("distributionZip") {
         expand(
             "pluginVersion" to project.version,
             "javaVersion" to java.toolchain.languageVersion.get().asInt(),
-            "opensearchVersion" to opensearchVersion
         )
     }
     from(tasks.jar)
@@ -49,6 +48,6 @@ artifacts {
 
 java {
     toolchain {
-        languageVersion.set(JavaLanguageVersion.of(17))
+        languageVersion.set(JavaLanguageVersion.of(21))
     }
 }
